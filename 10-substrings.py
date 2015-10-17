@@ -14,6 +14,7 @@ For example T(2) = 9 and T(5) = 3492.
 Find T(1018) mod 1 000 000 007.
 '''
 from math import pow
+import re
 def is10substring(number):
     return sumOfNums(number)==10
 
@@ -26,14 +27,17 @@ def sumOfNums(number):
 
 
 def isFriendly(number):
+    number = re.sub('0', '', number)
     friendlyValues = [False]*len(number)
     resultSet=[]
     length = len(number)
-    for step in range(2,len(number)-1):
+
+    for step in range(2,length+1):
         currentIndex = 0
         while(currentIndex+step<=length):
             currentSubstring=number[currentIndex:currentIndex+step:]
             if(is10substring(currentSubstring)):
+                #print(currentSubstring)
                 for i in range(currentIndex,currentIndex+step):
                     friendlyValues[i]=True
             currentIndex+=1
@@ -47,10 +51,14 @@ def isFriendly(number):
 
 def numberOf10Friendly(n):
     number = 0
-    for x in range(1, int(pow(10,n))+1):
-        if isFriendly(x):
+
+    for x in range(9, int(pow(10,n))+1):
+        if isFriendly(str(x)):
             number+=1
+            if(number%10000 == 0):
+                print("found number ",number)
     return number
 
 
-print(numberOf10Friendly(2))
+
+print(numberOf10Friendly(18)%1000000007)
