@@ -13,7 +13,7 @@ For example T(2) = 9 and T(5) = 3492.
 
 Find T(1018) mod 1 000 000 007.
 '''
-
+from math import pow
 def is10substring(number):
     return sumOfNums(number)==10
 
@@ -24,21 +24,33 @@ def sumOfNums(number):
         sum += int(c)
     return sum
 
-'''returns all substrings of a string with length step'''
-def substringizer(number, step):
-    resultSet=list()
+
+def isFriendly(number):
+    friendlyValues = [False]*len(number)
+    resultSet=[]
     length = len(number)
-    currentIndex = 0
-    while(currentIndex+step<=length):
-        resultSet.append(number[currentIndex:currentIndex+step:])
-        currentIndex+=1
-    return resultSet
+    for step in range(2,len(number)-1):
+        currentIndex = 0
+        while(currentIndex+step<=length):
+            currentSubstring=number[currentIndex:currentIndex+step:]
+            if(is10substring(currentSubstring)):
+                for i in range(currentIndex,currentIndex+step):
+                    friendlyValues[i]=True
+            currentIndex+=1
+    isFriendly = True
+    for i in friendlyValues:
+        if i==False:
+            isFriendly=False
+            break
+    return isFriendly
 
-def getAllMySubstrings(number):
-    resultSet=list()
-    for i in range(2,len(number)-1):
-        resultSet.append(substringizer(number, i))
-    return resultSet
+
+def numberOf10Friendly(n):
+    number = 0
+    for x in range(1, int(pow(10,n))+1):
+        if isFriendly(x):
+            number+=1
+    return number
 
 
-print(getAllMySubstrings(str(3523014)))
+print(numberOf10Friendly(2))
