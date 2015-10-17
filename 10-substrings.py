@@ -14,9 +14,14 @@ For example T(2) = 9 and T(5) = 3492.
 Find T(1018) mod 1 000 000 007.
 '''
 from math import pow
+import time
 import re
+
+global start_time
+
+
 def is10substring(number):
-    return sumOfNums(number)==10
+    return sumOfNums(number) == 10
 
 
 def sumOfNums(number):
@@ -28,37 +33,41 @@ def sumOfNums(number):
 
 def isFriendly(number):
     number = re.sub('0', '', number)
-    friendlyValues = [False]*len(number)
-    resultSet=[]
+    friendlyValues = [False] * len(number)
     length = len(number)
-
-    for step in range(2,length+1):
+    for step in range(2, length + 1):
         currentIndex = 0
-        while(currentIndex+step<=length):
-            currentSubstring=number[currentIndex:currentIndex+step:]
-            if(is10substring(currentSubstring)):
-                #print(currentSubstring)
-                for i in range(currentIndex,currentIndex+step):
-                    friendlyValues[i]=True
-            currentIndex+=1
+        while currentIndex + step <= length:
+            currentSubstring = number[currentIndex:currentIndex + step:]
+            if (is10substring(currentSubstring)):
+                # print(currentSubstring)
+                for i in range(currentIndex, currentIndex + step):
+                    friendlyValues[i] = True
+            currentIndex += 1
     isFriendly = True
     for i in friendlyValues:
-        if i==False:
-            isFriendly=False
+        if i == False:
+            isFriendly = False
             break
     return isFriendly
 
 
 def numberOf10Friendly(n):
     number = 0
+    global start_time
 
-    for x in range(9, int(pow(10,n))+1):
+    for x in range(9, int(pow(10, n)) + 1):
+        #if isFriendly(re.sub('0', '', str(x))):
         if isFriendly(str(x)):
-            number+=1
-            if(number%10000 == 0):
-                print("found number ",number)
+            number += 1
+            if (number % 10000 == 0):
+                print("found number ", number)
+                print("--- %s seconds ---" % (time.time() - start_time))
     return number
 
 
 
-print(numberOf10Friendly(18)%1000000007)
+start_time = time.time()
+
+print(numberOf10Friendly(18) % 1000000007)
+
