@@ -33,6 +33,10 @@ def sumOfNums(number):
 
 def isFriendly(number):
     number = re.sub('0', '', number)
+    if sumOfNums(number)<10:
+        return False
+
+
     length = len(number)
     friendlyValues = [False] * length
 
@@ -45,12 +49,13 @@ def isFriendly(number):
                 friendlyValues[currentindex: currentindex + step] = [True] * step
                 # print(friendlyValues)
             currentindex += 1
+            # if not(False in friendlyValues):
+            #     return True
 
     isFriendly = True
-    for i in friendlyValues:
-        if i == False:
+    if (False in friendlyValues):
             isFriendly = False
-            break
+
     return isFriendly
 
 
@@ -60,11 +65,12 @@ def numberOf10Friendly(n):
 
     for x in range(9, int(pow(10, n)) + 1):
         # if isFriendly(re.sub('0', '', str(x))):
+
         if isFriendly(str(x)):
             number += 1
-            if (number % 100000 == 0):
-                print("found number ", number)
-                print("--- %s seconds ---" % (time.time() - start_time))
+            # if (number % 1000000007 == 0):
+            #     print("found number ", number)
+            #     print("--- %s seconds ---" % (time.time() - start_time))
     return number
 
 
