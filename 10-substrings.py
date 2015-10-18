@@ -26,24 +26,26 @@ def is10substring(number):
 
 def sumOfNums(number):
     sum = 0
-    for c in str(number):
+    for c in number:
         sum += int(c)
     return sum
 
 
 def isFriendly(number):
     number = re.sub('0', '', number)
-    friendlyValues = [False] * len(number)
     length = len(number)
-    for step in range(2, length + 1):
-        currentIndex = 0
-        while currentIndex + step <= length:
-            currentSubstring = number[currentIndex:currentIndex + step:]
+    friendlyValues = [False] * length
+
+    for step in range(2, length + 1 if length < 11 else 10):
+        currentindex = 0
+        while currentindex + step <= length:
+            currentSubstring = number[currentindex:currentindex + step]
             if (is10substring(currentSubstring)):
-                # print(currentSubstring)
-                for i in range(currentIndex, currentIndex + step):
-                    friendlyValues[i] = True
-            currentIndex += 1
+                # print(number, currentSubstring, friendlyValues, step)
+                friendlyValues[currentindex: currentindex + step] = [True] * step
+                # print(friendlyValues)
+            currentindex += 1
+
     isFriendly = True
     for i in friendlyValues:
         if i == False:
@@ -57,17 +59,18 @@ def numberOf10Friendly(n):
     global start_time
 
     for x in range(9, int(pow(10, n)) + 1):
-        #if isFriendly(re.sub('0', '', str(x))):
+        # if isFriendly(re.sub('0', '', str(x))):
         if isFriendly(str(x)):
             number += 1
-            if (number % 10000 == 0):
+            if (number % 100000 == 0):
                 print("found number ", number)
                 print("--- %s seconds ---" % (time.time() - start_time))
     return number
 
 
-
 start_time = time.time()
-
+# print(numberOf10Friendly(2))
+# print(numberOf10Friendly(5))
+# print("--- %s seconds ---" % (time.time() - start_time))
 print(numberOf10Friendly(18) % 1000000007)
-
+print("--- %s seconds ---" % (time.time() - start_time))
