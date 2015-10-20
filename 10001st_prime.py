@@ -3,6 +3,9 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that 
 What is the 10 001st prime number?
 '''
 from math import sqrt
+import time
+
+
 def checkIfPrime(i):
     if(i == 2):
         return True
@@ -10,7 +13,7 @@ def checkIfPrime(i):
         return False
     else:
         isPrime = True
-        for num in range(3,int(sqrt(i)+1)):
+        for num in range(3,int(sqrt(i)+1),2):
             #print(num)
             if(i%num == 0):
                 isPrime = False
@@ -30,5 +33,8 @@ def primeCounter(orderInPrimes):
     print(currentNum)
 
 
+start_time = time.time()
+
 
 primeCounter(10001)
+print("--- %s seconds ---" % (time.time() - start_time))
