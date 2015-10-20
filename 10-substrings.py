@@ -52,12 +52,10 @@ def isFriendly(number):
             currentindex += 1
             # if not(False in friendlyValues):
             #     return True
+        if not (False in friendlyValues):
+            return True
 
-    isFriendly = True
-    if (False in friendlyValues):
-            isFriendly = False
-
-    return isFriendly
+    return False
 
 
 def numberOf10Friendly(n):
@@ -76,8 +74,10 @@ def numberOf10Friendly(n):
 
 
 start_time = time.time()
+# print(isFriendly(str(352301410000955555555555555282820008)))
 # print(numberOf10Friendly(2))
 # print(numberOf10Friendly(5))
 # print("--- %s seconds ---" % (time.time() - start_time))
-print(numberOf10Friendly(18) % 1000000007)
+# print(numberOf10Friendly(18) % 1000000007)
+print(numberOf10Friendly(7))
 print("--- %s seconds ---" % (time.time() - start_time))
