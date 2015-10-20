@@ -8,7 +8,7 @@ A 10-substring of a number is a substring of its digits that sum to 10. For exam
 3523014
 A number is called 10-substring-friendly if every one of its digits belongs to a 10-substring. For example, 3523014 is 10-substring-friendly, but 28546 is not.
 
-Let T(n) be the number of 10-substring-friendly numbers from 1 to 10n (inclusive).
+Let T(n) be the number of 10-substring-friendly numbers from 1 to 10^n (inclusive).
 For example T(2) = 9 and T(5) = 3492.
 
 Find T(1018) mod 1 000 000 007.
@@ -32,7 +32,8 @@ def sumOfNums(number):
 
 
 def isFriendly(number):
-    number = re.sub('0', '', number)
+
+    #number = re.sub('0', '', number)
     if sumOfNums(number)<10:
         return False
 
@@ -67,6 +68,7 @@ def numberOf10Friendly(n):
         # if isFriendly(re.sub('0', '', str(x))):
 
         if isFriendly(str(x)):
+            print(x)
             number += 1
             # if (number % 1000000007 == 0):
             #     print("found number ", number)
@@ -75,8 +77,13 @@ def numberOf10Friendly(n):
 
 
 start_time = time.time()
-# print(numberOf10Friendly(2))
-# print(numberOf10Friendly(5))
-# print("--- %s seconds ---" % (time.time() - start_time))
-print(numberOf10Friendly(18) % 1000000007)
+numberOf10Friendly(1)
+numberOf10Friendly(2)
+numberOf10Friendly(3)
+numberOf10Friendly(4)
+numberOf10Friendly(5)
+# print(numberOf10Friendly(6)% 1000000007)
+# print(numberOf10Friendly(7)% 1000000007)
+# print(isFriendly(str(3523014)))
+# print(numberOf10Friendly(18) % 1000000007)
 print("--- %s seconds ---" % (time.time() - start_time))
