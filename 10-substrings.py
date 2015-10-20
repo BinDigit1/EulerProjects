@@ -32,8 +32,7 @@ def sumOfNums(number):
 
 
 def isFriendly(number):
-    if '0'in number:
-        number = re.sub('0', '', number)
+    number = re.sub('0', '', number)
     if sumOfNums(number)<10:
         return False
 
@@ -52,10 +51,12 @@ def isFriendly(number):
             currentindex += 1
             # if not(False in friendlyValues):
             #     return True
-        if not (False in friendlyValues):
-            return True
 
-    return False
+    isFriendly = True
+    if (False in friendlyValues):
+            isFriendly = False
+
+    return isFriendly
 
 
 def numberOf10Friendly(n):
@@ -67,17 +68,15 @@ def numberOf10Friendly(n):
 
         if isFriendly(str(x)):
             number += 1
-            if (number % 10000 == 0):
-                print("found number ", number)
-                print("--- %s seconds ---" % (time.time() - start_time))
+            # if (number % 1000000007 == 0):
+            #     print("found number ", number)
+            #     print("--- %s seconds ---" % (time.time() - start_time))
     return number
 
 
 start_time = time.time()
-# print(isFriendly(str(352301410000955555555555555282820008)))
 # print(numberOf10Friendly(2))
 # print(numberOf10Friendly(5))
 # print("--- %s seconds ---" % (time.time() - start_time))
-# print(numberOf10Friendly(18) % 1000000007)
-print(numberOf10Friendly(7))
+print(numberOf10Friendly(18) % 1000000007)
 print("--- %s seconds ---" % (time.time() - start_time))
