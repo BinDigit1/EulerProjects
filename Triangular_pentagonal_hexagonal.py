@@ -30,9 +30,13 @@ def inverse_hexagonal(number):
 
 start_time = time.time()
 starting_point = 144
-while(not inverse_triangular(hexagonal(starting_point)) or (not inverse_pentagonal(hexagonal(starting_point)))):
-
-    starting_point+=1
-print(hexagonal(starting_point),starting_point)
+current_hex = 0
+while(True):
+    current_hex=hexagonal(starting_point)
+    if(not inverse_triangular(current_hex) or (not inverse_pentagonal(current_hex))):
+        starting_point+=1
+    else:
+        break
+print(current_hex)
 
 print("--- %s seconds ---" % (time.time() - start_time))
