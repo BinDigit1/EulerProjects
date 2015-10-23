@@ -19,6 +19,11 @@ def triangular(number):
     return number*(number+1)/2
 
 def inverse_triangular(number):
+    '''
+    Checks if a number is triangular, i.e. if there exists a natural n for which T(n) = number
+    :param number: the number to be checked
+    :return: true if the given number is triangular, false otherwise.
+    '''
     delta = 1+8*number
     root = (-1 + math.sqrt(delta))/2
 
