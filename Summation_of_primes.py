@@ -9,8 +9,8 @@ import time, MathFunctions
 
 
 def sumOfPrimesBelow(upperLimit):
-    sum = 0
-    for i in range(2, upperLimit):
+    sum = 2
+    for i in range(3, upperLimit, 2):
         if MathFunctions.checkIfPrime(i):
             sum+=i
     return sum
