@@ -8,7 +8,7 @@ def checkIfPrime(i):
         return False
     else:
         isPrime = True
-        for num in range(3,int(math.sqrt(i)+1)):
+        for num in range(3,int(math.sqrt(i)+1),2):
             #print(num)
             if(i%num == 0):
                 isPrime = False
