@@ -1,6 +1,6 @@
 import time,math
 
-
+from MathFunctions import hexagonal,inverse_pentagonal, inverse_triangular
 
 
 start_time = time.time()
