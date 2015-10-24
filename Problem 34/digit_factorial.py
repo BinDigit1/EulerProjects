@@ -1,0 +1,3 @@
+def isDigitFactorial():
+
+    return False
