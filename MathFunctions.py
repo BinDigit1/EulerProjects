@@ -52,10 +52,3 @@ def fibonacci(n):
         return 1
     else:
         return fibonacci(n - 1) + fibonacci(n - 2)
-
-def factorial(number):
-    if number==1 or number ==0:
-        result = 1
-    else:
-        result = number*factorial(number-1)
-    return result

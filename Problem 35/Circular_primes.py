@@ -33,6 +33,7 @@ number_of_primes = 0
 for i in range(2, 1000000):
     if(i>2):
         strRep = str(i)
+        # optimisation - skip numbers that contain even digits
         if ('2' in strRep or '4' in strRep or '6' in strRep or '8' in strRep or '0' in strRep):
             continue
 
