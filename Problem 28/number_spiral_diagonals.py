@@ -6,13 +6,18 @@ class Direction(Enum):
     up = 3
     right = 4
 
-spiral = [[None for i in range(5)] for j in range(5)]
+spiral = [[0 for i in range(5)] for j in range(5)]
 
 current_x, current_y = 0, 4
 #initially moving to the left
 move_x, move_y = 0, -1
 current_dir = Direction.left
 for i in range(25,0,-1):
+    spiral[current_x][current_y] = i
+    if spiral[current_x+move_x][current_y+move_y] == 0:
+        current_x += move_x
+        current_y += move_y
+
 
     if (current_y == 0 ) and current_dir == Direction.left:
         move_x = 1
@@ -30,15 +35,14 @@ for i in range(25,0,-1):
         current_dir = Direction.up
 
         print('moving up')
-    elif (current_x == 0 ) and current_dir == Direction.up:
+    elif (current_x == 0) and current_dir == Direction.up:
         move_x = 0
         move_y = -1
         current_dir = Direction.left
         print('moving left')
 
-    spiral[current_x][current_y] = i
-
-    current_x += move_x
-    current_y += move_y
     pprint.pprint(spiral)
-    print(current_x,current_y,move_x,move_y)
+    print(current_x,current_y,move_x,move_y, spiral[current_x][current_y], current_dir)
+
+
+
