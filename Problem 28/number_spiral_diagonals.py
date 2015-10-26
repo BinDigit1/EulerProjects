@@ -15,22 +15,22 @@ current_dir = Direction.left
 for i in range(25,0,-1):
     spiral[current_x][current_y] = i
     pprint.pprint(spiral)
-    if current_y == 0 and current_dir == Direction.left:
+    if (current_y == 0 ) and current_dir == Direction.left:
         move_x = 1
         move_y = 0
         current_dir = Direction.down
-    if current_x == 4 and current_dir == Direction.down:
+    if (current_x == 4 ) and current_dir == Direction.down:
         move_x = 0
         move_y = 1
         current_dir = Direction.right
         print('moving right')
-    if current_y == 4 and current_dir == Direction.right:
+    if (current_y == 4 ) and current_dir == Direction.right:
         move_x = -1
         move_y = 0
         current_dir = Direction.up
 
         print('moving up')
-    if current_x == 4 and current_dir == Direction.up:
+    if (current_x == 0 ) and current_dir == Direction.up:
         move_x = 0
         move_y = -1
         current_dir = Direction.left
