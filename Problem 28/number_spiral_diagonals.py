@@ -1,4 +1,4 @@
-import pprint
+import pprint, time
 from enum import Enum
 class Direction(Enum):
     left = 1
@@ -41,23 +41,21 @@ class MySpiral:
             # pprint.pprint(spiral)
             # print(current_x, current_y, move_x, move_y, spiral[current_x][current_y], current_dir)
     def sum_first_diagonal(self):
-        sum1 = 0
-        for i in range(0,self.size):
-            sum1 += self.spiral[i][i]
-        return sum1
+        return sum(self.spiral[i][i] for i in range(0,self.size))
+
     def sum_second_diagonal(self):
-        sum2 = 0
-        for i in range(0,self.size):
-            sum2 += self.spiral[self.size - i][self.size - i]
-            print(self.spiral[self.size - i][self.size - i])
-        return sum2
+        return sum(self.spiral[i][self.size -1 - i] for i in range(0,self.size))
+
+    def diagonal_sum(self):
+        # note that the central 1 is counted twice
+        return self.sum_first_diagonal()+self.sum_second_diagonal()-1
     def print_me(self):
         pprint.pprint(self.spiral)
 
 
 
-
-a_spiral = MySpiral(5).sum_second_diagonal()
-
-
+start_time = time.time()
+# a_spiral = print(MySpiral(1001).diagonal_sum())
+a_spiral = print(MySpiral(1001).diagonal_sum())
+print("--- %s seconds ---" % (time.time() - start_time))
 
