@@ -11,7 +11,7 @@ import time, MathFunctions
 def sumOfPrimesBelow(upperLimit):
     sum = 2
     for i in range(3, upperLimit, 2):
-        if MathFunctions.checkIfPrime(i):
+        if MathFunctions.miller_is_prime(i):
             sum+=i
     return sum
 

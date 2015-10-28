@@ -3,16 +3,16 @@ The number, 197, is called a circular prime because all rotations of the digits:
 There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
 How many circular primes are there below one million?
 '''
-from MathFunctions import checkIfPrime
+import MathFunctions
 import time
 def isCircularPrime(number):
     length = len(str(number))
     if (length==1):
-        return checkIfPrime(number)
+        return MathFunctions.checkIfPrime(number)
 
     else:
         for variation in list_of_variations(number):
-            if not checkIfPrime(variation):
+            if not MathFunctions.checkIfPrime(variation):
                 return False
         return  True
 
