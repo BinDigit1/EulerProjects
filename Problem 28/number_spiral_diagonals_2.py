@@ -8,8 +8,6 @@ def diagonal_members(size):
             diagonals.add(i*i - (i-1)*j)
     return sum(int(digit) for digit in diagonals)
 
-
-
 start_time = time.time()
 print(diagonal_members(1001))
 print("--- %s seconds ---" % (time.time() - start_time))
