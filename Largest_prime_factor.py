@@ -4,6 +4,10 @@ What is the largest prime factor of the number 600851475143 ?
 
 '''
 from math import sqrt
+import time
+
+start_time = time.time()
+
 UPPER_LIMIT = 600851475143
 my_primes = []
 x=3
@@ -26,3 +30,5 @@ while(x<UPPER_LIMIT//2):
     x+=2
 
 print(my_primes)
+
+print("--- %s seconds ---" % (time.time() - start_time))

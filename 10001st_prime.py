@@ -3,7 +3,7 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that 
 What is the 10 001st prime number?
 """
 
-from MathFunctions import checkIfPrime
+import MathFunctions
 import time, unittest
 
 
@@ -11,7 +11,7 @@ def prime_counter(order_in_primes):
     current_num = 2
     current_order_in_primes = 0
     while True:
-        if checkIfPrime(current_num):
+        if MathFunctions.checkIfPrime(current_num):
             current_order_in_primes += 1
         if current_order_in_primes < order_in_primes:
             current_num += 1
