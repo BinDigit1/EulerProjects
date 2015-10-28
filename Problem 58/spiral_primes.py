@@ -16,7 +16,8 @@ If one complete new layer is wrapped around the spiral above, a square spiral wi
 be formed. If this process is continued, what is the side length of the square spiral for which the ratio of
 primes along both diagonals first falls below 10%?
 '''
-import time
+import time, MathFunctions
+
 def diagonal_members(size):
     diagonals = set()
     for i in range(size, 0,-2):
@@ -24,7 +25,17 @@ def diagonal_members(size):
         for j in range(0,4):
             # print(i, j, i*i - (i-1)*j)
             diagonals.add(i*i - (i-1)*j)
-    return diagonals
+    number_of_primes = sum(1 for x in diagonals if MathFunctions.miller_is_prime(x))
+    # print(number_of_primes,len(diagonals))
+    return (number_of_primes/len(diagonals))
+
 start_time = time.time()
-diagonal_members(7)
+starting_point = 7
+while diagonal_members(starting_point) > 0.1:
+    # print(starting_point, diagonal_members(starting_point))
+    # side length has to be odd
+    print("current size: ", starting_point)
+    starting_point+=2
+print(starting_point)
+
 print("--- %s seconds ---" % (time.time() - start_time))
