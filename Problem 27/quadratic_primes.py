@@ -18,7 +18,7 @@ for a in range(-1000,1000):
     for b in range(-1000, 1000):
         current_function = function_generator(a,b)
         number_of_primes_now = function_tester(current_function)
-        if function_tester(current_function)>current_max:
+        if number_of_primes_now>current_max:
             current_max = number_of_primes_now
             # print("current max combo: ", a, b, current_max)
             product = a*b
