@@ -14,9 +14,11 @@ def function_tester(f):
     return count
 
 
-for a in range(-1000,1000):
-    for b in range(-1000, 1000):
+for a in range(0,1000):
+    for b in range(0, 1000):
         current_function = function_generator(a,b)
+        if function_tester(current_function)>1:
+            print(a, b, function_tester(current_function))
 
 
 
