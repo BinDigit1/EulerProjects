@@ -1,4 +1,4 @@
-import MathFunctions
+import MathFunctions, time
 
 def function_generator(a, b):
     def f(h):
@@ -12,7 +12,7 @@ def function_tester(f):
             break
         count+=1
     return count
-
+start_time = time.time()
 current_max, product = 0 , 0
 for a in range(-1000,1000):
     for b in range(-1000, 1000):
@@ -20,10 +20,10 @@ for a in range(-1000,1000):
         number_of_primes_now = function_tester(current_function)
         if function_tester(current_function)>current_max:
             current_max = number_of_primes_now
-            print("current max combo: ", a, b, current_max)
+            # print("current max combo: ", a, b, current_max)
             product = a*b
 print(product)
-
+print("--- %s seconds ---" % (time.time() - start_time))
 
 
 
