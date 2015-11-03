@@ -1,43 +1,31 @@
 
-import time
+import time, math
 def count_reversibles(limit):
     counter = 0
-    reversible_list, non_reversible_list = set(), set()
+    even_set = set(['0','2','4','6','8'])
+    odd_set = set(['1','3','5','7','9'])
+
+
     for number in range(1, limit):
+        last_digit = number%10
+        if (last_digit == 0):
+            continue
         string_repr = str(number)
-        if number in reversible_list or number in non_reversible_list:
-            # print("found existing instance: ", number)
-            continue
 
-
-
-        if (number%10 == 0):
-            continue
         rev_num = int(string_repr[::-1])
-        #
-        # if (sum_of_digits%2) == 0:
-        #     return False
-
         sum_of_both = (number+rev_num)
-        # print(number,int(string_repr[::-1]), sum_of_both )
-        is_reversible = True
-        for i in str(sum_of_both):
-            # print(i)
-            if int(i)%2 ==0 :
-                is_reversible = False
-                break
-        if is_reversible:
-            reversible_list.add(number)
-            reversible_list.add(rev_num)
-            print(number, sum_of_both)
+        if set(str(sum_of_both)).issubset(odd_set):
+            # print(string_repr, rev_num, sum_of_both)
+            counter+=1
 
-        else:
-            non_reversible_list.add(number)
-            non_reversible_list.add(rev_num)
-    return len(reversible_list)
+
+
+    return counter
 
 start_time = time.time()
 
-print(count_reversibles(10000))
+print(count_reversibles(1000000000))
 # print(is_reversible(619))
+
+
 print("--- %s seconds ---" % (time.time() - start_time))
