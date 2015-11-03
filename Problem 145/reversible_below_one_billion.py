@@ -6,26 +6,18 @@ def count_reversibles(limit):
     odd_set = set(['1','3','5','7','9'])
 
 
-    for number in range(1, limit):
+    for number in range(9, limit, 2):
 
         last_digit = number%10
         if (last_digit == 0):
             continue
-        string_repr = str(number)
-
-
-        rev_num = int(string_repr[::-1])
+        rev_num = int(str(number)[::-1])
         sum_of_both = (number+rev_num)
-        # if set(str(sum_of_both)).issubset(odd_set):
-        #     # print(string_repr, rev_num, sum_of_both)
-        #     counter+=1
-        is_reversible = True
-        for i in str(sum_of_both):
-            if i in even_set:
-                is_reversible = False
-                break
-        if is_reversible:
-            counter+=1
+        if set(str(sum_of_both)) & even_set != set():
+            # print(string_repr, rev_num, sum_of_both)
+            continue
+        counter+=2
+
 
 
 
@@ -33,7 +25,7 @@ def count_reversibles(limit):
 
 start_time = time.time()
 
-print(count_reversibles(100000000))
+print(count_reversibles(99999999))
 # print(is_reversible(619))
 
 
