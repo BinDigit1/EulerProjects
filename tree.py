@@ -4,19 +4,20 @@
 
 class BinaryTree():
 
-    def __init__(self,rootid):
+    def __init__(self,rootid,value = 0):
       self.left = None
       self.right = None
       self.rootid = rootid
+      self.value = value
 
     def getLeftChild(self):
         return self.left
     def getRightChild(self):
         return self.right
-    def setNodeValue(self,value):
-        self.rootid = value
+    def setNodeValue(self,rootid):
+        self.rootid = rootid
     def getNodeValue(self):
-        return self.rootid
+        return str(self.rootid) + ":" + str(self.value)
 
     def insertRight(self,newNode):
         if self.right == None:
@@ -37,8 +38,9 @@ class BinaryTree():
 
 def printTree(tree):
         if tree != None:
-            printTree(tree.getLeftChild())
             print(tree.getNodeValue())
+            printTree(tree.getLeftChild())
+
             printTree(tree.getRightChild())
 
 
@@ -51,3 +53,6 @@ def testTree():
     myTree.insertRight("Tony")
     myTree.insertRight("Steven")
     printTree(myTree)
+
+if __name__ == "__main__":
+    testTree()
