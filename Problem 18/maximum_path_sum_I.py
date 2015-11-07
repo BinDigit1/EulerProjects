@@ -1,6 +1,10 @@
-import tree
+import tree, pprint
 
 with open("triangle.txt") as f:
     content = f.readlines()
+    dic = {}
+    level = 0
     for x in content:
-        print(x.strip("\n").split(" "))
+        dic[level] =x.strip("\n").split(" ")
+        level += 1
+    pprint.pprint(dic)
