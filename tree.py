@@ -51,3 +51,5 @@ def testTree():
     myTree.insertRight("Tony")
     myTree.insertRight("Steven")
     printTree(myTree)
+
+testTree()
