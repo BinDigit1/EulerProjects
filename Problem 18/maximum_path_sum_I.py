@@ -1,4 +1,4 @@
-import tree
+
 
 with open("triangle.txt") as f:
     content = f.readlines()
