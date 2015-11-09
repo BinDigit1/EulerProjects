@@ -7,7 +7,7 @@ with open("small_triangle.txt") as f:
     for x in reversed(content):
         reversed_list.append((x.strip("\n").split(" ")))
 
-def take_nth_column(list_a,n, after_row=0):
+def take_nth_column(list_a, n=0, after_row=0):
     temp = [row[n] for row in list_a][after_row:]
     return temp
 def sum_of_items(list_a):
