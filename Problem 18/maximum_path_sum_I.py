@@ -13,6 +13,6 @@ def take_nth_column(list_a, n=0, after_row=0):
 def sum_of_items(list_a):
     return sum(int(i) for i in list_a)
 
-print(list_normal)
-print(take_nth_column(list_normal,0, 1))
-print(sum_of_items(take_nth_column(list_normal,0,1)))
+level = 1
+print(take_nth_column(list_normal,0, level))
+print(sum_of_items(take_nth_column(list_normal,0,level)))
