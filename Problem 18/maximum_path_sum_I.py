@@ -8,8 +8,8 @@ with open("small_triangle.txt") as f:
         reversed_list.append((x.strip("\n").split(" ")))
 
 def take_first_column(list_a, after_row=0):
-    temp = [row[0] for row in list_a]
-    return temp[after_row:]
+    temp = [row[0] for row in list_a][after_row:]
+    return temp
 def sum_of_items(list_a):
     return sum(int(i) for i in list_a)
 
