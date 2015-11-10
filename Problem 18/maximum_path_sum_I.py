@@ -17,7 +17,13 @@ def sum_of_items(list_a):
     return sum(int(i) for i in list_a)
 
 level = 1
+left_index, right_index = 0, 0
+for i in range(1, num_lines):
+    level = i
+    if sum_of_items(take_nth_column(list_normal,left_index, level)) >  sum_of_items(take_nth_column(reversed_list,right_index, level)):
+        print(take_nth_column(list_normal,left_index, level)[0])
+        right_index += 1
+    else:
+        print(take_nth_column(reversed_list,right_index, level)[0])
+        left_index += 1
 
-print(num_lines)
-print(take_nth_column(list_normal,0, level))
-print(sum_of_items(take_nth_column(list_normal,0,level)))
