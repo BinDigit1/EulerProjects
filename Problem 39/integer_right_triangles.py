@@ -20,7 +20,7 @@ for i in range(1,1001):
 
         max_triads = current_count
         max_triads_index = i
-        print(i, max_triads)
+        # print(i, max_triads)
 print("max: ", max_triads_index)
 
 print("--- %s seconds ---" % (time.time() - start_time))
