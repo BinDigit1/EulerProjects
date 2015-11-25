@@ -49,6 +49,12 @@ def inverse_hexagonal(number):
 
     return root==int(root)
 
+def is_palindrome(num):
+    if str(num) == str(num)[::-1]:
+        return True
+    else:
+        return False
+
 @functools.lru_cache(None)
 def fib(n):
     if n < 2:
