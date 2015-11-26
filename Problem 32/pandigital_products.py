@@ -1,11 +1,6 @@
 import time
 
-
-def is_pandigital(num):
-    set_of_num = set(i for i in str(num))
-    set_of_all_digits = set(str(i) for i in range(1, len(str(num)) + 1))
-    return len(str(num)) == len(set_of_num) and set_of_all_digits.difference(set_of_num) == set()
-
+from MathFunctions import is_pandigital
 
 start_time = time.time()
 products = set()
