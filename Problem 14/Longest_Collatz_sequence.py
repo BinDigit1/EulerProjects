@@ -14,6 +14,7 @@ def Collatz(number):
 start_time = time.time()
 max_steps = 1
 biggest_start = 1
+#we only need to examine the odd ones, as they produce longer chains
 for i in range(3,1000000,2):
     temp = Collatz(i)
 
