@@ -27,13 +27,15 @@ max_sum = int(list_normal[0][0])
 for i in range(1, num_lines):
     level = i
     if sum_of_items(take_nth_column(list_normal,left_index, level)) >  sum_of_items(take_nth_column(reversed_list,right_index, level)):
-        print(take_nth_column(list_normal,left_index, level), ' > ', take_nth_column(reversed_list,right_index, level))
+        print(sum_of_items(take_nth_column(list_normal,left_index, level)), '...', sum_of_items(take_nth_column(reversed_list,right_index, level)))
+        print(take_nth_column(list_normal,left_index, level), ' > ', take_nth_column(reversed_list,right_index, level), ' L')
         max_sum += int(take_nth_column(list_normal,left_index, level)[0])
-        print('L')
+
         right_index += 1
     else:
        max_sum += int(take_nth_column(reversed_list,right_index, level)[0])
-       print('R')
+       print(take_nth_column(list_normal,left_index, level), ' < ', take_nth_column(reversed_list,right_index, level), ' R')
+
        left_index += 1
 
 
