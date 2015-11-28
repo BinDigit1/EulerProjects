@@ -15,6 +15,7 @@ def last9pandigital(number):
 start_time = time.time()
 i = 1
 while True:
+    print(i)
     current_fib = MathFunctions.fib(i)
     # print(i, len(str(current_fib)))
     if first9pandigital(current_fib) and last9pandigital(current_fib):
