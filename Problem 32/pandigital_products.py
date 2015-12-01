@@ -9,7 +9,7 @@ for i in range(1, 999):
         product = i * j
         full_num = int(str(i) + str(j) + str(product))
         if (123456789 <= full_num <= 987654321) and is_pandigital(full_num):
-            print(i, j, product)
+            # print(i, j, product)
             products.add(product)
 print(sum(i for i in products))
 print("--- %s seconds ---" % (time.time() - start_time))
