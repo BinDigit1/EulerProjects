@@ -21,7 +21,7 @@ for i in multiples_of_17:
         for k in multiples_of_11:
             for l in multiples_of_7:
                 # print(l, k, j, i)
-                if i[0:2] == j[1:] and k[1:] == j[0:2] and l[1:3]==k[0:2]:
+                if i[0:2] == j[1:] and k[1:] == j[0:2] and l[1:3]==k[0:2]: #combine the constraints that overlap in the last digits
                     last_part.append(l+k[2]+i[1:])
 
 sum_all = 0
